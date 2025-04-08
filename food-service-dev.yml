@@ -50,5 +50,5 @@ info:
   app:
     name: "Food Service"
     description: "This is food service. we are developing right now"
-    version: "1.0 Under Development"
+    version: "{cipher}684515c5d984fce7585791e41b5d64bc66641a16a71df8bd2b1de73eafe1f3d1b0dcfa5386431493f25fc27eab2d96c5"
 
