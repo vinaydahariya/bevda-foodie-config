@@ -4,7 +4,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/fooddb
     username: vinay
-    password: Vinay123@#$
+    password: {cipher}5c38dc3f0ba8bc2d110ec5fe85e758ee8d9246e8e7496bd019a66a73a2bc4d43
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
