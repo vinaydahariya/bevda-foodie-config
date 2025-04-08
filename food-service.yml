@@ -1,3 +1,6 @@
+server:
+  port: 9099
+
 spring:
   application:
     name: food-service
@@ -6,7 +9,9 @@ spring:
     username: vinay
     password: {cipher}5c38dc3f0ba8bc2d110ec5fe85e758ee8d9246e8e7496bd019a66a73a2bc4d43
     driver-class-name: com.mysql.cj.jdbc.Driver
-
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
   jpa:
     database-platform: org.hibernate.dialect.MySQL8Dialect
     hibernate:
@@ -15,27 +20,44 @@ spring:
     properties:
       hibernate:
         format_sql: true
-
-# eureka configuration
+        jdbc:
+          batch_size: 20
+          order_inserts: true
+          order_updates: true
 
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+    registry-fetch-interval-seconds: 5
+    healthcheck:
+      enabled: true
   instance:
     hostname: localhost
+    prefer-ip-address: false
+    lease-renewal-interval-in-seconds: 10
+    lease-expiration-duration-in-seconds: 30
+    metadata-map:
+      instance-group: food-services
 
 management:
   endpoints:
     web:
       exposure:
         include: "*"
+      base-path: /actuator
+  endpoint:
+    health:
+      show-details: always
+    info:
+      enabled: true
   info:
     env:
       enabled: true
 
 logging:
   level:
+    root: INFO
     org:
       hibernate:
         SQL: DEBUG
@@ -43,3 +65,6 @@ logging:
           descriptor:
             sql:
               BasicBinder: TRACE
+      springframework:
+        web: DEBUG
+        jpa: DEBUG
