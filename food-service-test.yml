@@ -1,14 +1,14 @@
 server:
   port: 9099
 
-application:
-  name: food-service
+spring:
+  application:
+    name: food-service
   datasource:
     url: jdbc:mysql://localhost:3306/fooddb
     username: vinay
     password: {cipher}5c38dc3f0ba8bc2d110ec5fe85e758ee8d9246e8e7496bd019a66a73a2bc4d43
     driver-class-name: com.mysql.cj.jdbc.Driver
-
   jpa:
     database-platform: org.hibernate.dialect.MySQL8Dialect
     hibernate:
@@ -17,8 +17,6 @@ application:
     properties:
       hibernate:
         format_sql: true
-
-# eureka configuration
 
 eureka:
   client:
@@ -51,4 +49,3 @@ info:
     name: "Food Service"
     description: "This is food service. we are testing right now"
     version: "1.0 Testing"
-
