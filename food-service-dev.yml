@@ -7,7 +7,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/fooddb
     username: vinay
-    password: Vinay123@#$
+    password: "{cipher}398ed2e495f44b20d1ab0c449dacde8c528bd8e219fd127cff498e55d1545cbf"
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     database-platform: org.hibernate.dialect.MySQL8Dialect
